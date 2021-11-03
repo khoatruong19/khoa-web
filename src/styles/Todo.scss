@@ -1,0 +1,224 @@
+@import "./responsive";
+@import "./variables";
+
+.todo {
+  background-color: $primaryColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+
+  &__form {
+    padding: 1rem;
+    border: 1.5px solid $textColor;
+    border-radius: 20px;
+    width: 35rem;
+    height: 26rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    box-shadow: 0px 0px 15px $secondaryColor;
+    @include mobile {
+      width: 300px;
+      height: 300px;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      label {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: $secondaryColor;
+        margin-bottom: 0.3rem;
+        @include mobile {
+          font-size: 1.5rem;
+        }
+      }
+      input {
+        height: 3rem;
+        @include mobile {
+          height: 2rem;
+        }
+      }
+      textarea {
+        height: 10rem;
+        @include mobile {
+          height: 5rem;
+        }
+      }
+      input,
+      textarea {
+        width: 100%;
+        border: none;
+        border-radius: 15px;
+        outline: none;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $textColor;
+        box-shadow: 0px 0px 15px $secondaryColor;
+        @include mobile {
+          font-size: 1.2rem;
+          width: 95%;
+        }
+      }
+    }
+    button {
+      padding: 1rem;
+      background-color: $primaryColor;
+      color: $secondaryColor;
+      font-size: 1.5rem;
+      font-weight: 600;
+      border: 2px solid $textColor;
+      border-radius: 20px;
+      cursor: pointer;
+      &:hover {
+        box-shadow: 0px 0px 15px $secondaryColor;
+      }
+
+      @include mobile {
+        padding: 0.5rem;
+        height: 3rem;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+    }
+  }
+  &__list {
+    margin-top: 2rem;
+    min-width: 60rem;
+    display: contents;
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      min-height: 25rem;
+      min-width: 55rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      @include tablet {
+        display: none;
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .icon {
+          font-size: 1.8rem;
+          cursor: pointer;
+          .checked {
+            color: $secondaryColor;
+          }
+        }
+      }
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    td:first-child(even) {
+      background-color: #dddddd;
+      max-width: 5rem;
+    }
+  }
+  .mobile__list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+    @include tablet {
+      display: contents;
+    }
+    &-item {
+      width: 90%;
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+      padding-top: 0.3rem;
+      padding-left: 0.3rem;
+      padding-right: 0.3rem;
+      background-color: $secondaryColor;
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      box-shadow: 0px 0px 10px $textColor;
+    }
+    .icon,
+    .detail-icon {
+      font-size: 2rem;
+      margin-left: 0.5rem;
+      color: $textColor;
+      @include mobile {
+        font-size: 1.3rem;
+        margin-left: 0.2rem;
+      }
+    }
+
+    .detail-icon {
+      position: relative;
+      .mobile-comment {
+        -ms-word-break: break-all;
+        word-break: break-all;
+        height: auto;
+        border-radius: 20px;
+        text-align: center;
+        min-width: 20rem;
+        color: rgb(209, 34, 34);
+        font-size: 1.2rem;
+        background-color: #fff;
+        font-weight: 600;
+        position: absolute;
+        top: -3rem;
+        left: -15rem;
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: -1rem;
+          right: 3.3rem;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid #fff;
+          transform: translateY(-100%);
+        }
+      }
+    }
+
+    .leftside,
+    .rightside {
+      display: flex;
+      align-content: center;
+    }
+
+    .leftside {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $textColor;
+      @include mobile {
+        font-size: 1rem;
+      }
+      .checkbox {
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: $textColor;
+        text-shadow: 0px 0px 5px #000;
+        margin-right: 0.2rem;
+        font-size: 1.8rem;
+        @include mobile {
+          font-size: 1.3rem;
+        }
+        .unfilled {
+          color: #000;
+        }
+      }
+    }
+  }
+}

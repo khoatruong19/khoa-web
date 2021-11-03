@@ -1,0 +1,95 @@
+@import "./variables.scss";
+@import "./responsive";
+.active {
+  background-color: $primaryColor;
+  opacity: 0.6;
+}
+.navbar {
+  height: 70px;
+  width: 100%;
+  background-color: $primaryColor;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  &__logo {
+    flex: 50%;
+    img {
+      width: 20%;
+      object-fit: cover;
+    }
+    a {
+      text-decoration: none;
+    }
+    h1 {
+      margin-left: 2.5rem;
+      color: rgb(53, 153, 185);
+      font-size: 3rem;
+      @include tablet {
+        font-size: 2rem;
+      }
+      &:hover {
+        color: #ec4343;
+        transition: all 0.3s ease;
+      }
+      @include tablet {
+        font-size: 2rem;
+      }
+    }
+  }
+  &__links {
+    flex: 50%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+    a {
+      text-decoration: none;
+      font-size: 1.7rem;
+      color: $secondaryColor;
+
+      &:hover {
+        color: #ec4343;
+        transition: all 0.3s ease;
+      }
+    }
+    @include mobile {
+      display: none;
+    }
+  }
+  .menu-btn {
+    display: none;
+    @include mobile {
+      color: $secondaryColor;
+      display: block;
+      position: absolute;
+      font-size: 1.5rem;
+      align-self: center;
+      top: 1.2rem;
+      right: 0.8rem;
+      cursor: pointer;
+    }
+  }
+  &__tlinks {
+    flex: 80%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-decoration: none;
+    justify-content: flex-end;
+    margin-right: 50px;
+
+    &-item {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: $secondaryColor;
+      @include mobile {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .close-btn {
+    color: $secondaryColor;
+  }
+}
